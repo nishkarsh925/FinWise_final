@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+  <title>Chatbot UI</title>
+  <meta name="description" content="Chatbot UI Example">
+  <meta name="keywords" content="chatbot, UI, example">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
+
+  <!-- Main CSS File -->
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+  <div class="chatbox-wrapper">
+    <div class="message-box">
+      <!-- Bot Message -->
+      <div class="chat response">
+        <img src="img/chatbot.jpg" alt="Bot">
+        <span>Hello there! <br> How can I help you today?</span>
+      </div>
+      <!-- User Message -->
+      <div class="chat user">
+        <span>This is a user message.</span>
+      </div>
+    </div>
+    <div class="messagebar">
+      <div class="bar-wrapper">
+        <input type="text" placeholder="Enter your message...">
+        <button>
+          <span class="material-symbols-rounded">send</span>
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Add your JavaScript here if needed -->
+  <script>
+    document.querySelector('button').addEventListener('click', function() {
+      const input = document.querySelector('input');
+      const messageBox = document.querySelector('.message-box');
+      
+      if (input.value.trim()) {
+        const userMessage = document.createElement('div');
+        userMessage.classList.add('chat', 'user');
+        userMessage.innerHTML = `<span>${input.value}</span>`;
+        messageBox.appendChild(userMessage);
+        input.value = ''; // Clear the input after sending the message
+
+        // Scroll to the bottom of the message box
+        messageBox.scrollTop = messageBox.scrollHeight;
+      }
+    });
+  </script>
+</body>
+
+</html>
